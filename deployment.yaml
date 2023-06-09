@@ -52,7 +52,7 @@ spec:
             - name: jenkins-data
               mountPath: /var/jenkins_home
             - name: docker-socket
-              mountPath: /var/run/docker.sock         
+              mountPath: /var/run/        
       volumes:
         - name: jenkins-data
           persistentVolumeClaim:
@@ -60,6 +60,6 @@ spec:
         - name: docker-socket
           hostPath:
             # directory location on host
-            path: /var/run/docker.sock
+            path: /var/run
             # this field is optional
-            type: FileOrCreate
+            type: Directory
