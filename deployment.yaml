@@ -50,8 +50,16 @@ spec:
             failureThreshold: 3
           volumeMounts:
             - name: jenkins-data
-              mountPath: /var/jenkins_home         
+              mountPath: /var/jenkins_home
+            - name: docker-socket
+              mountPath: /var/run/docker.sock         
       volumes:
         - name: jenkins-data
           persistentVolumeClaim:
               claimName: jenkins-claim
+        - name: docker-socket
+          hostPath:
+            # directory location on host
+            path: /var/run/docker.sock
+            # this field is optional
+            type: FileOrCreate
