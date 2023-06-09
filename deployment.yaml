@@ -52,15 +52,15 @@ spec:
           volumeMounts:
             - name: jenkins-data
               mountPath: /var/jenkins_home
-            # - name: docker-socket
-            #   mountPath: /var/run/        
+            - name: docker-socket
+              mountPath: /var/run/      
       volumes:
         - name: jenkins-data
           persistentVolumeClaim:
               claimName: jenkins-claim
-        # - name: docker-socket
-        #   hostPath:
-        #     # directory location on host
-        #     path: /var/run
-        #     # this field is optional
-        #     type: Directory
+        - name: docker-socket
+          hostPath:
+            # directory location on host
+            path: /var/run
+            # this field is optional
+            type: Directory
