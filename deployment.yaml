@@ -52,12 +52,12 @@ spec:
           volumeMounts:
             - name: jenkins-data
               mountPath: /var/jenkins_home
-            # - name: docker-socket
-            #   mountPath: /var/run/ 
+            - name: docker-socket
+              mountPath: /var/run/
       initContainers:
         - name: init-docker-sock
-          image: alpine
-          # command: ["/bin/sh", "-c", "chmod -R 777 /var/run/docker.sock"]
+          image: busybox
+          command: ["sh", "-c", "chmod -R 777 /var/run/docker.sock"]
           volumeMounts:
           - mountPath: /var/run
             name: docker-socket
