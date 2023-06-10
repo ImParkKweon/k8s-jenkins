@@ -20,7 +20,7 @@ spec:
       containers:
         - name: jenkins
           # image: jenkins/jenkins:lts
-          image: hyunjun1325/myjenkins:0.5
+          image: hyunjun1325/myjenkins:0.6
           resources:
             limits:
               memory: "4Gi"
