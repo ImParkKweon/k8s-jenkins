@@ -61,7 +61,7 @@ spec:
           volumeMounts:
           - mountPath: /var/run
             name: docker-socket
-            readOnly: flase
+            readOnly: false
       volumes:
         - name: jenkins-data
           persistentVolumeClaim:
