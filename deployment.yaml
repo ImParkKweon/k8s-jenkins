@@ -60,7 +60,7 @@ spec:
           securityContext:
             privileged: true
             runAsUser: 0
-          command: ["sh", "-c", "chmod -R 777 /var/run/"]
+          command: ["sh", "-c", "chmod 777 /var/run/docker.sock"]
           volumeMounts:
           - mountPath: /var/run
             name: docker-socket
