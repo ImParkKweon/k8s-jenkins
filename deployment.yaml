@@ -57,7 +57,7 @@ spec:
       initContainers:
         - name: init-docker-sock
           image: alpine
-          command: ["sh", "-c", "chmod -R 777 /var/run/docker.sock"]
+          command: ["/bin/sh", "-c", "chmod -R 777 /var/run/docker.sock"]
           volumeMounts:
           - mountPath: /var/run
             name: docker-socket
