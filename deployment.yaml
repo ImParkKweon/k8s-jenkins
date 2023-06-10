@@ -52,8 +52,16 @@ spec:
           volumeMounts:
             - name: jenkins-data
               mountPath: /var/jenkins_home
-            - name: docker-socket
-              mountPath: /var/run/      
+            # - name: docker-socket
+            #   mountPath: /var/run/ 
+      initContainers:
+        - name: init_docker-sock
+          image: alpine
+          command: ["sh", "-c", "chmod -R 777 /var/run/docker.sock"]
+          volumeMounts:
+          - mountPath: /var/run
+            name: docker-socket
+            readOnly: flase
       volumes:
         - name: jenkins-data
           persistentVolumeClaim:
